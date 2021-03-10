@@ -2,13 +2,14 @@ import javafx.stage.Stage
 import model.db.DataBaseConnection
 import tornadofx.*
 import views.MainView
+import views.authorizationViews.AuthorizationView
 
-class Application : App(MainView::class, Styles::class) {
+class Application : App(AuthorizationView::class, Styles::class) {
   override fun start(stage: Stage) {
     with(stage) {
-      minWidth = 600.0
-      minHeight = 400.0
-      isResizable = false
+//      minWidth = 600.0
+//      minHeight = 400.0
+//      isResizable = false
       super.start(this)
     }
     System.getProperties().setProperty("oracle.jdbc.J2EE13Compliant", "true")

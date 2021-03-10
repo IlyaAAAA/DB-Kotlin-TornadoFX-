@@ -33,12 +33,12 @@ class MonthlyIncomeVIew : Fragment("My View") {
           }
         }
 
-        button("Save") {
+        button("Save to file") {
           vboxConstraints {
             marginTop = 10.0
           }
           action {
-            if (incomeField.length > 0 ) {
+            if (incomeField.length > 0) {
               monthlyIncomeController.writeToFile(date.value, incomeField.text)
             }
           }

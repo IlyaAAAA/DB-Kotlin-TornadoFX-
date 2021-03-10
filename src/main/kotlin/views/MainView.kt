@@ -26,6 +26,9 @@ class MainView : View("Main View") {
   private var charges = mainController.getCharges().asObservable()
 
   override val root = tabpane {
+
+    setPrefSize(600.0, 400.0)
+
     tabClosingPolicy = TabPane.TabClosingPolicy.UNAVAILABLE
 
     tab("Warehouses") {
