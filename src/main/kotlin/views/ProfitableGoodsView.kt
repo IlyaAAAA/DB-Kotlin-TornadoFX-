@@ -79,6 +79,7 @@ class ProfitableGoodsView : Fragment("Five the profitable goods") {
         action {
           if (profitableGoodsList.size > 0) {
             profitableGoodController.writeToFile(firstDate.value, secondDate.value, profitableGoodsList)
+            NotificateView("Saved to file").openModal(resizable = false)
           }
         }
       }

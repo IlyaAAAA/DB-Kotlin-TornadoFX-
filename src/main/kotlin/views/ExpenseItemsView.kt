@@ -32,20 +32,32 @@ class ExpenseItemsView(title: String, private val buttonText: String, private va
           nameField = this
         }
       }
-      buttonbar {
+
+      vbox {
         button(buttonText) {
           button = this
           action {
             try {
               when (button.text) {
                 "Add" -> addAction(nameField.text)
-                "Edit" -> editAction(nameField.text)
+                "Ok" -> editAction(nameField.text)
               }
               op.invoke()
               close()
             } catch (e: SQLIntegrityConstraintViolationException) {
               ErrorView("This name is already used").openModal(resizable = false)
             }
+          }
+
+        }
+        button("Cancel") {
+
+          vboxConstraints {
+            marginTop = 10.0
+          }
+
+          action {
+            close()
           }
         }
       }

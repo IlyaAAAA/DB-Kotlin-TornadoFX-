@@ -54,7 +54,7 @@ class MainView : View("Main View") {
 
             item("Edit").action {
               selectedItem?.let {
-                WarehousesView("Edit Warehouse", "Edit", it) {
+                WarehousesView("Edit Warehouse", "Ok", it) {
                   updateWarehouses()
                   warehousesTable.items = warehouses
                 }.openModal(resizable = false)
@@ -102,7 +102,7 @@ class MainView : View("Main View") {
 
             item("Edit").action {
               selectedItem?.let {
-                SalesView("Edit sale", "Edit", it, it.warehouse) {
+                SalesView("Edit sale", "Ok", it, it.warehouse) {
                   updateSales()
                   salesTable.items = sales
                 }.openModal(resizable = false)
@@ -147,7 +147,7 @@ class MainView : View("Main View") {
 
             item("Edit").action {
               selectedItem?.let {
-                ChargesView("Charge edit", "Edit", it, it.expenseItem) {
+                ChargesView("Charge edit", "Ok", it, it.expenseItem) {
                   updateCharges()
                   chargesTable.items = charges
                 }.openModal(resizable = false)
@@ -189,7 +189,7 @@ class MainView : View("Main View") {
 
             item("Edit").action {
               selectedItem?.let {
-                ExpenseItemsView("Edit expense item", "Edit", it) {
+                ExpenseItemsView("Edit expense item", "Ok", it) {
                   updateExpenseItems()
                   expenseItemsTable.items = expenseItems
                 }.openModal(resizable = false)

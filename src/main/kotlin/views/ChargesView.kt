@@ -55,13 +55,13 @@ class ChargesView(title: String, private val buttonText: String, private val op:
         }
       }
 
-      buttonbar {
+      vbox {
         button(buttonText) {
           action {
             try {
               when (buttonText) {
                 "Add" -> addAction(Integer.parseInt(amountField.text), chargeDateField.value, expenseItemComboBox.value)
-                "Edit" -> editAction(
+                "Ok" -> editAction(
                   Integer.parseInt(amountField.text),
                   chargeDateField.value,
                   expenseItemComboBox.value
@@ -72,6 +72,17 @@ class ChargesView(title: String, private val buttonText: String, private val op:
             } catch (e: NumberFormatException) {
               ErrorView("Amount must be a number").openModal(resizable = false)
             }
+          }
+        }
+
+        button("Cancel") {
+
+          vboxConstraints {
+            marginTop = 10.0
+          }
+
+          action {
+            close()
           }
         }
       }

@@ -61,7 +61,7 @@ class SalesView(title: String, private val buttonText: String, private val op: (
         }
       }
 
-      buttonbar {
+      vbox {
         button(buttonText) {
           action {
             try {
@@ -72,7 +72,7 @@ class SalesView(title: String, private val buttonText: String, private val op: (
                   saleDateField.value,
                   warehouseComboBox.value
                 )
-                "Edit" -> editAction(
+                "Ok" -> editAction(
                   Integer.parseInt(amountField.text),
                   Integer.parseInt(quantityField.text),
                   saleDateField.value,
@@ -84,6 +84,17 @@ class SalesView(title: String, private val buttonText: String, private val op: (
             } catch (e: NumberFormatException) {
               ErrorView("Amount and quantity must be a number").openModal(resizable = false)
             }
+
+          }
+        }
+        button("Cancel") {
+
+          vboxConstraints {
+            marginTop = 10.0
+          }
+
+          action {
+            close()
           }
         }
       }

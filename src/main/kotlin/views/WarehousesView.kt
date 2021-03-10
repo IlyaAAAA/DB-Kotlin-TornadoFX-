@@ -45,7 +45,7 @@ class WarehousesView(title: String, private val buttonText: String, private val 
         }
       }
 
-      buttonbar {
+      vbox {
         button(buttonText) {
           action {
             try {
@@ -55,7 +55,7 @@ class WarehousesView(title: String, private val buttonText: String, private val 
                   Integer.parseInt(quantityField.text),
                   Integer.parseInt(amountField.text)
                 )
-                "Edit" -> editAction(
+                "Ok" -> editAction(
                   nameField.text,
                   Integer.parseInt(quantityField.text),
                   Integer.parseInt(amountField.text)
@@ -66,6 +66,17 @@ class WarehousesView(title: String, private val buttonText: String, private val 
             } catch (e: NumberFormatException) {
               ErrorView("Amount and quantity must be a number").openModal(resizable = false)
             }
+          }
+        }
+
+        button("Cancel") {
+          
+          vboxConstraints { 
+            marginTop = 10.0
+          }
+          
+          action {
+            close()
           }
         }
       }

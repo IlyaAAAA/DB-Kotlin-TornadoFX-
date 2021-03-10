@@ -40,6 +40,7 @@ class MonthlyIncomeVIew : Fragment("My View") {
           action {
             if (incomeField.length > 0) {
               monthlyIncomeController.writeToFile(date.value, incomeField.text)
+              NotificateView("Saved to file").openModal(resizable = false)
             }
           }
         }
